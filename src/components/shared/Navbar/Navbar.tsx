@@ -32,8 +32,8 @@ const Navbar = () => {
   return (
     <>
       <div className="bg-linear-to-r from-blue-600 to-indigo-600 text-white py-2 px-4 text-center text-sm font-medium">
-        🎉 Grand Opening Sale - Up to 50% OFF on Selected Items | Free Shipping
-        Over $50
+        Grand Opening Sale - Up to 50% OFF on Selected Items | Free Shipping
+        Over 5000 tk
       </div>
 
       <nav
