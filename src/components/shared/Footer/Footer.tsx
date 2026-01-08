@@ -14,6 +14,7 @@ import {
   Youtube,
   Send,
 } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -87,7 +88,7 @@ const Footer = () => {
             <div className="space-y-3 mb-6">
               <div className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors cursor-pointer">
                 <Phone className="w-5 h-5 text-blue-500" />
-                <span>+1 (555) 123-4567</span>
+                <span>+88-0123465666</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors cursor-pointer">
                 <Mail className="w-5 h-5 text-blue-500" />
@@ -95,40 +96,29 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors cursor-pointer">
                 <MapPin className="w-5 h-5 text-blue-500" />
-                <span>123 Market Street, NY 10001</span>
+                <span>201,NewMarket Ctg</span>
               </div>
             </div>
             <div className="flex space-x-3">
-              <a
-                href="#"
+              <Link
+                href="https://www.facebook.com/tushar.Chowdhury.20"
                 className="w-10 h-10 bg-slate-700 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all hover:scale-110"
               >
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-slate-700 hover:bg-blue-400 rounded-full flex items-center justify-center transition-all hover:scale-110"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
+              </Link>
+
+              <Link
                 href="#"
                 className="w-10 h-10 bg-slate-700 hover:bg-pink-600 rounded-full flex items-center justify-center transition-all hover:scale-110"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/tusharchowdhury20211/"
                 className="w-10 h-10 bg-slate-700 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all hover:scale-110"
               >
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-slate-700 hover:bg-red-600 rounded-full flex items-center justify-center transition-all hover:scale-110"
-              >
-                <Youtube className="w-5 h-5" />
-              </a>
+              </Link>
             </div>
           </div>
 

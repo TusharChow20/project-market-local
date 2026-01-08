@@ -161,13 +161,6 @@ const Navbar = () => {
                 Local Stores
               </a>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <MapPin className="w-4 h-4 text-blue-600" />
-              <span>
-                Deliver to:{" "}
-                <strong className="text-gray-900">New York, 10001</strong>
-              </span>
-            </div>
           </div>
         </div>
 
