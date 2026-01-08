@@ -20,13 +20,14 @@ import {
   Utensils,
 } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
+import { TCategory } from "@/types";
 
 const CategoryCarousel = () => {
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnInteraction: true })
   );
 
-  const categories = [
+  const categories: TCategory[] = [
     {
       id: 1,
       name: "Tech Products",
@@ -108,7 +109,7 @@ const CategoryCarousel = () => {
           onMouseLeave={plugin.current.reset}
         >
           <CarouselContent className="-ml-2 md:-ml-4">
-            {categories.map((category) => (
+            {categories.map((category: TCategory) => (
               <CarouselItem
                 key={category.id}
                 className="pl-2 md:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
