@@ -1,6 +1,8 @@
+// features/bestSellers/bestSellersData.ts
+
 import { TProduct } from "@/types";
 
-export const bestSellersData: TProduct[] = [
+export const initialBestSellers: TProduct[] = [
   {
     id: 9,
     name: "Classic Cotton T-Shirt",

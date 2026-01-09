@@ -6,8 +6,8 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, ShoppingCart, Eye, Star, TrendingUp } from "lucide-react";
-import { bestSellersData } from "@/features/bestSellers/bestSellersData";
 import { TProduct } from "@/types";
+import { initialBestSellers } from "@/features/bestSellers/bestSellersData";
 
 const BestSellers: React.FC = () => {
   const handleAddToCart = (product: TProduct) => {
@@ -42,7 +42,7 @@ const BestSellers: React.FC = () => {
 
         {/* Products Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mb-8">
-          {bestSellersData.map((product) => (
+          {initialBestSellers.map((product) => (
             <Card
               key={product.id}
               className="group border-none shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
