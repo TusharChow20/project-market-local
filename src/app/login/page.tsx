@@ -1,5 +1,6 @@
 "use client";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
+import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -28,13 +29,13 @@ export default function LoginPage() {
 
     try {
       // Example: Call your backend API
-      // const response = await fetch('http://localhost:5000/api/users/login', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email: data.email, password: data.password })
-      // });
-      // const result = await response.json();
-      // console.log(result);
+      const response = await fetch('http://localhost:5000/api/users/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: data.email, password: data.password })
+      });
+      const result = await response.json();
+      console.log(result);
 
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -272,12 +273,12 @@ export default function LoginPage() {
           {/* Sign Up Link */}
           <p className="text-center text-sm text-gray-600 mt-6">
             Don&apos;t have an account?{" "}
-            <a
-              href="#"
+            <Link
+              href="/register"
               className="text-blue-600 hover:text-blue-700 font-semibold"
             >
               Sign up
-            </a>
+            </Link>
           </p>
         </div>
       </div>
