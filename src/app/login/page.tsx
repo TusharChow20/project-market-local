@@ -1,20 +1,27 @@
 "use client";
-import useAxiosSecure from "@/hooks/useAxiosSecure";
-import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Swal from "sweetalert2";
+
+interface LoginFormData {
+  email: string;
+  password: string;
+  rememberMe: boolean;
+}
 
 export default function LoginPage() {
-  const axiosSecure = useAxiosSecure();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
-  } = useForm({
+  } = useForm<LoginFormData>({
     mode: "onBlur",
     defaultValues: {
       email: "",
@@ -23,34 +30,52 @@ export default function LoginPage() {
     },
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true);
-    console.log("Login data:", data);
 
     try {
-      // Example: Call your backend API
-      const response = await fetch('http://localhost:5000/api/users/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: data.email, password: data.password })
+      const result = await signIn("credentials", {
+        redirect: false,
+        email: data.email,
+        password: data.password,
       });
-      const result = await response.json();
-      console.log(result);
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      alert("Login successful!");
-      reset();
-    } catch (error) {
+      if (result?.error) {
+        // Show error alert
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed",
+          text: result.error,
+          confirmButtonColor: "#2563eb",
+        });
+      } else if (result?.ok) {
+        // Show success alert
+        Swal.fire({
+          icon: "success",
+          title: "Success!",
+          text: "Login successful! Redirecting...",
+          timer: 1500,
+          showConfirmButton: false,
+        }).then(() => {
+          router.push("/dashboard");
+          router.refresh();
+        });
+      }
+    } catch (error: any) {
       console.error("Login error:", error);
-      alert("Login failed!");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "An unexpected error occurred. Please try again.",
+        confirmButtonColor: "#2563eb",
+      });
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="w-full max-w-md">
         {/* Login Card */}
         <div className="bg-white rounded-2xl shadow-xl p-8">
