@@ -12,6 +12,7 @@ import {
   MessageCircle,
   Store,
 } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -110,7 +111,9 @@ const Navbar = () => {
               </button>
               <button className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-full hover:shadow-lg transition-all">
                 <User className="w-5 h-5" />
-                <span className="font-medium">Sign In</span>
+                <Link href={"/login"} className="font-medium">
+                  Sign In
+                </Link>
               </button>
 
               <button className="flex items-center space-x-2 bg-gradient-to-r from-emerald-500 to-green-600 text-white px-4 py-2 rounded-full hover:shadow-lg transition-all">
@@ -257,7 +260,9 @@ const Navbar = () => {
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
                 <button className="flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-3 rounded-lg hover:shadow-lg transition-all">
                   <User className="w-5 h-5" />
-                  <span className="font-medium">Sign In / Register</span>
+                  <Link href={"/login"} className="font-medium">
+                    Sign In / Register
+                  </Link>
                 </button>
                 <button className="flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-500 to-green-600 text-white px-4 py-3 rounded-lg hover:shadow-lg transition-all">
                   <Store className="w-5 h-5" />
