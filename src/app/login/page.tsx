@@ -1,8 +1,10 @@
 "use client";
+import useAxiosSecure from "@/hooks/useAxiosSecure";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function LoginPage() {
+  const axiosSecure = useAxiosSecure();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
